@@ -1,0 +1,58 @@
+﻿@model buildingblocksapp.Models.Werkorder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Werkorder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Klantorder.naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klantorder.naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productielijn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productielijn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leverperiode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leverperiode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.akkoordPlanning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.akkoordPlanning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.akkoordAccountmanager)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.akkoordAccountmanager)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.werkorderid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<buildingblocksapp.Models.Orderpick>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Werkorder.productielijn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodeAanvraag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodeLevering)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rood)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grijs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.blauw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.akkoordProductie)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Werkorder.productielijn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodeAanvraag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodeLevering)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rood)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grijs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.blauw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.akkoordProductie)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.orderpickid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.orderpickid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.orderpickid })
+        </td>
+    </tr>
+}
+
+</table>

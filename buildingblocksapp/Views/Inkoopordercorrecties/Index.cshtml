@@ -1,0 +1,51 @@
+﻿@model IEnumerable<buildingblocksapp.Models.Inkoopordercorrectie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Inkooporder.inkooporderid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rood)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grijs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.blauw)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inkooporder.inkooporderid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rood)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grijs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.blauw)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.inkooporderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.inkooporderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.inkooporderid })
+        </td>
+    </tr>
+}
+
+</table>

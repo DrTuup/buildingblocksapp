@@ -1,0 +1,66 @@
+﻿@model buildingblocksapp.Models.Inkooporder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inkooporder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Inkoopordercorrectie.inkooporderid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inkoopordercorrectie.inkooporderid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodeBinnenkomst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodeBinnenkomst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodeVerwerkt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodeVerwerkt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blauw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blauw)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.inkooporderid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

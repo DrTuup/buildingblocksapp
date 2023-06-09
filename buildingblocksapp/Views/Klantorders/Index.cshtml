@@ -1,0 +1,57 @@
+﻿@model IEnumerable<buildingblocksapp.Models.Klantorder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aantal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referentienummer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.akkoordAccountmanager)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aantal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.referentienummer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.akkoordAccountmanager)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.orderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.orderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.orderid })
+        </td>
+    </tr>
+}
+
+</table>

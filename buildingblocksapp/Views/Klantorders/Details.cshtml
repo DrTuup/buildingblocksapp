@@ -1,0 +1,58 @@
+﻿@model buildingblocksapp.Models.Klantorder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Klantorder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aantal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aantal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.referentienummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.referentienummer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.akkoordAccountmanager)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.akkoordAccountmanager)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

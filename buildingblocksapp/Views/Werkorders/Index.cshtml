@@ -1,0 +1,57 @@
+﻿@model IEnumerable<buildingblocksapp.Models.Werkorder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Klantorder.naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productielijn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.leverperiode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.akkoordPlanning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.akkoordAccountmanager)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Klantorder.naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productielijn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.leverperiode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.akkoordPlanning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.akkoordAccountmanager)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.werkorderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.werkorderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.werkorderid })
+        </td>
+    </tr>
+}
+
+</table>

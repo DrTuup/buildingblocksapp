@@ -1,0 +1,74 @@
+﻿@model buildingblocksapp.Models.Orderpick
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orderpick</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Werkorder.productielijn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Werkorder.productielijn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodeAanvraag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodeAanvraag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodeLevering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodeLevering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blauw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blauw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.akkoordProductie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.akkoordProductie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderpickid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
