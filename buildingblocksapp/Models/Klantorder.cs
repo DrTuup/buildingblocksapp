@@ -16,7 +16,7 @@ namespace buildingblocksapp.Models
         }
 
         [StringLength(255)]
-        public string naam { get; set; }
+        public string Naam { get; set; }
 
         public int? aantal { get; set; }
 
