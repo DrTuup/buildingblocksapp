@@ -136,8 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountManagementController.cs" />
     <Compile Include="Controllers\InkoopordercorrectiesController.cs" />
     <Compile Include="Controllers\InkoopordersController.cs" />
     <Compile Include="Controllers\KlantordersController.cs" />
@@ -228,9 +230,11 @@
     <Content Include="Views\Werkorders\Details.cshtml" />
     <Content Include="Views\Werkorders\Edit.cshtml" />
     <Content Include="Views\Werkorders\Index.cshtml" />
+    <Content Include="Views\AccountManagement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
