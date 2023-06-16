@@ -11,9 +11,15 @@ namespace buildingblocksapp.Controllers
 {
     public class AccountManagementController : Controller
     {
+        private buildingblocksdbContext db = new buildingblocksdbContext();
         // GET: AccountManagement
         public ActionResult Index()
         {
+            return View();
+        }
+        public ActionResult Report(DateTime start, DateTime end)
+        {
+            int ordercount = db.Klantorders.Where(a => a.aanmaakdatum >= start && a.voldaandatum <= end).Count();
             return View();
         }
     }

@@ -153,7 +153,6 @@
     <Compile Include="Models\Inkoopordercorrectie.cs" />
     <Compile Include="Models\Klantorder.cs" />
     <Compile Include="Models\Orderpick.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\Werkorder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
