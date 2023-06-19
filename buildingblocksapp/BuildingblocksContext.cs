@@ -18,7 +18,7 @@ namespace buildingblocksapp
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("Default"));
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("DefaultConnection"));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
