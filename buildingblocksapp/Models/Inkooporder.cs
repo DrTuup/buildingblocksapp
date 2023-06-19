@@ -1,17 +1,28 @@
-﻿namespace buildingblocksapp.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace buildingblocksapp.Models
 {
     public class Inkooporder
     {
         //Properties
-        public long InkooporderId { get; set; }
+        [Key, Required]
+        public int InkooporderId { get; set; }
+        [Required, ForeignKey("InkooporderCorrectie")]
+        public int InkooporderCorrectieId { get; set; }
+        [Required, DataType(DataType.DateTime)]
         public DateTime PeriodeBinnenkomst { get; set; }
+        [Required, DataType(DataType.DateTime)]
         public DateTime PeriodeVerwerkt { get; set; }
-        public int Rood { get; set; }
-        public int Grijs { get; set; }
-        public int Blauw { get; set; }
+        [Required]
+        public int Rood { get; set; } = 0;
+        [Required]
+        public int Grijs { get; set; } = 0;
+        [Required]
+        public int Blauw { get; set; } = 0;
 
 
         //Relationships
-        public List<InkooporderCorrectie> InkooporderCorrecties { get; set; } = new List<InkooporderCorrectie>();
+        public InkooporderCorrectie InkooporderCorrectie { get; set; }
     }
 }

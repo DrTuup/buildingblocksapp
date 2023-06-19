@@ -1,14 +1,22 @@
-﻿namespace buildingblocksapp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace buildingblocksapp.Models
 {
     public class InkooporderCorrectie
     {
         //Properties
-        public long InkooporderId { get; set; }
-        public int Rood { get; set; }
-        public int Grijs { get; set; }
-        public int Blauw { get; set; }
+        [Required, Key]
+        public int InkooporderCorrectieId { get; set; }
+        [Required]
+        public int InkooporderId { get; set; }
+        [Required]
+        public int Rood { get; set; } = 0;
+        [Required]
+        public int Grijs { get; set; } = 0;
+        [Required]
+        public int Blauw { get; set; } = 0;
 
         //Relationships
-        public List<Inkooporder> Inkooporders { get; set; } = new List<Inkooporder>();
+        public Inkooporder Inkooporder { get; set; }
     }
 }
