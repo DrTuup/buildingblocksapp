@@ -1,0 +1,54 @@
+﻿@model buildingblocksapp.Models.Werkorder
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Werkorder</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Productielijn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Productielijn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LeverPeriode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LeverPeriode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AkkoordPanning)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AkkoordPanning)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AkkoordAccountmanager)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AkkoordAccountmanager)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Orderpick)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Orderpick.OrderpickId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Klantorder)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Klantorder.Naam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.WerkorderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
