@@ -32,6 +32,10 @@ namespace buildingblocksapp.Models
 
         public bool? akkoordAccountmanager { get; set; }
 
+        public DateTime? aanmaakdatum { get; set; }
+
+        public DateTime? voldaandatum { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Werkorder> Werkorders { get; set; }
     }

@@ -15,7 +15,6 @@ namespace buildingblocksapp.Models
         public virtual DbSet<Inkooporder> Inkooporders { get; set; }
         public virtual DbSet<Klantorder> Klantorders { get; set; }
         public virtual DbSet<Orderpick> Orderpicks { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Werkorder> Werkorders { get; set; }
         public virtual DbSet<Inkoopordercorrectie> Inkoopordercorrecties { get; set; }
 
