@@ -10,11 +10,11 @@ namespace buildingblocksapp
         {
             Configuration = configuration;
         }
-        public DbSet<Inkooporder> Inkooporders { get; set; }
-        public DbSet<InkooporderCorrectie> InkooporderCorrecties { get; set; }
-        public DbSet<Klantorder> Klantorders { get; set; }
-        public DbSet<Orderpick> Orderpicks { get; set; }
-        public DbSet<Werkorder> Werkorders { get; set; }
+        public DbSet<Inkooporder> Inkooporders { get; set; } = null!;
+        public DbSet<InkooporderCorrectie> InkooporderCorrecties { get; set; } = null!;
+        public DbSet<Klantorder> Klantorders { get; set; } = null!;
+        public DbSet<Orderpick> Orderpicks { get; set; } = null!;
+        public DbSet<Werkorder> Werkorders { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

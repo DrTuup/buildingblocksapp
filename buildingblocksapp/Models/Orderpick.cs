@@ -24,6 +24,6 @@ namespace buildingblocksapp.Models
         public bool AkkoordProductie { get; set; }
 
         // Relationships
-        public Werkorder Werkorder { get; set; }
+        public Werkorder Werkorder { get; set; } = null!;
     }
 }

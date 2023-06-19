@@ -23,6 +23,6 @@ namespace buildingblocksapp.Models
 
 
         //Relationships
-        public InkooporderCorrectie InkooporderCorrectie { get; set; }
+        public InkooporderCorrectie InkooporderCorrectie { get; set; } = null!;
     }
 }

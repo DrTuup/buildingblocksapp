@@ -24,7 +24,7 @@ namespace buildingblocksapp.Models
 
 
         //Relationships
-        public Orderpick Orderpick { get; set; }
-        public Klantorder Klantorder { get; set; }
+        public Orderpick Orderpick { get; set; } = null!;
+        public Klantorder Klantorder { get; set; } = null!;
     }
 }

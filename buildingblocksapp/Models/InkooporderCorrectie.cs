@@ -17,6 +17,6 @@ namespace buildingblocksapp.Models
         public int Blauw { get; set; } = 0;
 
         //Relationships
-        public Inkooporder Inkooporder { get; set; }
+        public Inkooporder Inkooporder { get; set; } = null!;
     }
 }
