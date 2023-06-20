@@ -51,6 +51,7 @@ namespace buildingblocksapp.Controllers
         {
             ViewData["KlantOrder"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam");
             ViewData["OrderpickId"] = new SelectList(_context.Orderpicks, "OrderpickId", "OrderpickId");
+            ViewData["Motortype"] = new SelectList(Enum.GetValues(typeof(MotortypeEnum)));
             return View();
         }
 

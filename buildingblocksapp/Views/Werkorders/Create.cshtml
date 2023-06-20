@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Motortype" class="control-label"></label>
-                <select asp-for="Motortype" class="form-control"></select>
+                <select asp-for="Motortype" class="form-control" asp-items="ViewBag.Motortype"></select>
                 <span asp-validation-for="Motortype" class="text-danger"></span>
             </div>
             <div class="form-group">
