@@ -51,7 +51,6 @@ namespace buildingblocksapp.Controllers
         {
             ViewData["KlantOrder"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam");
             ViewData["OrderpickId"] = new SelectList(_context.Orderpicks, "OrderpickId", "OrderpickId");
-            ViewData["Motortype"] = new SelectList(Enum.GetValues(typeof(MotortypeEnum)));
             return View();
         }
 
@@ -60,7 +59,7 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("WerkorderId,OrderpickId,KlantOrder,Productielijn,LeverPeriode,AkkoordPanning,AkkoordAccountmanager")] Werkorder werkorder)
+        public async Task<IActionResult> Create([Bind("WerkorderId,OrderpickId,KlantOrder,Motortype,LeverPeriode,AkkoordPanning")] Werkorder werkorder)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +95,7 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("WerkorderId,OrderpickId,KlantOrder,Productielijn,LeverPeriode,AkkoordPanning,AkkoordAccountmanager")] Werkorder werkorder)
+        public async Task<IActionResult> Edit(int id, [Bind("WerkorderId,OrderpickId,KlantOrder,Motortype,LeverPeriode,AkkoordPanning")] Werkorder werkorder)
         {
             if (id != werkorder.WerkorderId)
             {

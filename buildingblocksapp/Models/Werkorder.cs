@@ -19,8 +19,6 @@ namespace buildingblocksapp.Models
         public DateTime LeverPeriode { get; set; }
         [Required]
         public bool AkkoordPanning { get; set; }
-        [Required]
-        public bool AkkoordAccountmanager { get; set; }
 
 
         //Relationships

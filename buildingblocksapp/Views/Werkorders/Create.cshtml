@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Motortype" class="control-label"></label>
-                <select asp-for="Motortype" class="form-control" asp-items="ViewBag.Motortype"></select>
+                <select asp-for="Motortype" class="form-control"></select>
                 <span asp-validation-for="Motortype" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,11 +33,6 @@
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="AkkoordPanning" /> @Html.DisplayNameFor(model => model.AkkoordPanning)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="AkkoordAccountmanager" /> @Html.DisplayNameFor(model => model.AkkoordAccountmanager)
                 </label>
             </div>
             <div class="form-group">
