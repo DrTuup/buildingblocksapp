@@ -48,7 +48,9 @@ namespace buildingblocksapp.Controllers
         // GET: Klantorders/Create
         public IActionResult Create()
         {
-            return View();
+            var klantorder = new Klantorder();
+            klantorder.Referentienummer = klantorder.GenerateRandomString(4);
+            return View(klantorder);
         }
 
         // POST: Klantorders/Create
