@@ -1,0 +1,76 @@
+﻿@model IEnumerable<buildingblocksapp.Models.Report>
+
+@{
+    ViewData["Title"] = "Rapport";
+}
+
+<h1>Rapport</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Referentie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grijs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blauw)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aantal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.Referentie)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Rood)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Grijs)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Blauw)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Aantal)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

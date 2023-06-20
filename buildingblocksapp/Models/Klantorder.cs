@@ -13,6 +13,10 @@ namespace buildingblocksapp.Models
         public string Naam { get; set; } = null!;
         [Required]
         public int Aantal { get; set; }
+        [Required, DataType(DataType.DateTime)]
+        public DateTime AanmaakDatum { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime VertrekDatum { get; set; }
         [Required]
         public MotortypeEnum Type { get; set; }
         [Required]

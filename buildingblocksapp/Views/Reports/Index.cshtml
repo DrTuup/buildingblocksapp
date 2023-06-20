@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Genereer een maandelijks rapport</h1>
+
+<h4>Selecteer de periode</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label for="start">Start datum</label>
+
+                <input type="date" id="start" name="start"
+                       min="2023-01-01">
+            </div>
+            <div class="form-group">
+                <label for="start">Eind datum</label>
+
+                <input type="date" id="end" name="end"
+                       min="2023-01-01">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
