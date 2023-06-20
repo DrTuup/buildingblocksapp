@@ -14,7 +14,7 @@ namespace buildingblocksapp.Models
         [Required]
         public int Aantal { get; set; }
         [Required]
-        public string Type { get; set; } = null!;
+        public MotortypeEnum Type { get; set; }
         [Required]
         public string Referentienummer { get; set; } = null!;
         [Required]

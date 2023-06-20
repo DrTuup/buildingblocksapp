@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -50,6 +50,8 @@ namespace buildingblocksapp.Controllers
         {
             var klantorder = new Klantorder();
             klantorder.Referentienummer = klantorder.GenerateRandomString(4);
+            klantorder.Type = MotortypeEnum.A;
+            ViewData["Motortypes"] = new SelectList(Enum.GetValues(typeof(MotortypeEnum)));
             return View(klantorder);
         }
 

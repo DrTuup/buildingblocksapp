@@ -14,7 +14,7 @@ namespace buildingblocksapp.Models
         [Required, ForeignKey("Klantorder")]
         public int KlantOrder { get; set; }
         [Required]
-        public ProductielijnEnum Productielijn { get; set; }
+        public MotortypeEnum Motortype { get; set; }
         [Required, DataType(DataType.DateTime)]
         public DateTime LeverPeriode { get; set; }
         [Required]
