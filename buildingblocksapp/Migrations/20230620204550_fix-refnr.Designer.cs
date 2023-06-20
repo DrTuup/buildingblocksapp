@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using buildingblocksapp;
 
@@ -11,9 +12,11 @@ using buildingblocksapp;
 namespace buildingblocksapp.Migrations
 {
     [DbContext(typeof(BuildingblocksContext))]
-    partial class BuildingblocksContextModelSnapshot : ModelSnapshot
+    [Migration("20230620204550_fix-refnr")]
+    partial class fixrefnr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,8 +106,9 @@ namespace buildingblocksapp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KlantorderId");
 
@@ -153,6 +157,9 @@ namespace buildingblocksapp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WerkorderId"));
 
+                    b.Property<bool>("AkkoordAccountmanager")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("AkkoordPanning")
                         .HasColumnType("bit");
 
@@ -162,10 +169,10 @@ namespace buildingblocksapp.Migrations
                     b.Property<DateTime>("LeverPeriode")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Motortype")
+                    b.Property<int>("OrderpickId")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderpickId")
+                    b.Property<int>("Productielijn")
                         .HasColumnType("int");
 
                     b.HasKey("WerkorderId");

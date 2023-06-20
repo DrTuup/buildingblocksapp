@@ -1,6 +1,6 @@
 ﻿namespace buildingblocksapp.Models
 {
-    public enum ProductielijnEnum
+    public enum MotortypeEnum
     {
         A, B, C
     }

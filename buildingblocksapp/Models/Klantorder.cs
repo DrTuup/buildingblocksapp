@@ -1,4 +1,6 @@
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace buildingblocksapp.Models
 {
@@ -12,13 +14,29 @@ namespace buildingblocksapp.Models
         [Required]
         public int Aantal { get; set; }
         [Required]
-        public string Type { get; set; } = null!;
+        public MotortypeEnum Type { get; set; }
         [Required]
-        public int Referentienummer { get; set; }
+        public string Referentienummer { get; set; } = null!;
         [Required]
         public bool AkkoordAccountmanager { get; set; }
 
         // Relationships
         public List<Werkorder> Werkorders { get; set; } = new();
+
+        // Methods
+        public string GenerateRandomString(int length)
+        {
+            var random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            StringBuilder sb = new StringBuilder(length);
+
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(chars.Length);
+                sb.Append(chars[index]);
+            }
+
+            return sb.ToString();
+        }    
     }
 }
