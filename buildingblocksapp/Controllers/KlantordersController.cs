@@ -158,10 +158,45 @@ namespace buildingblocksapp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        
+        
 
         private bool KlantorderExists(int id)
         {
           return (_context.Klantorders?.Any(e => e.KlantorderId == id)).GetValueOrDefault();
+        }
+
+        public async TaskIActionResult AcceptOrder(int id)
+        {
+            if (id == null || _context.Klantorders == null)
+            {
+                return NotFound();
+            }
+
+            var klantorder = await _context.Klantorders.FindAsync(id);
+            if (klantorder == null)
+            {
+                return NotFound();
+            }
+
+            klantorder.AkkoordAccountmanager = true;
+            if (Klantorder != null)
+            {
+                _context.Update(klantorder);
+                await _context.SaveChangesAsync();
+            }
+                        
+            for (int i = 0; i < klantorder.Aantal; i++)
+            {
+                var werkorder = new Werkorder();
+                werkorder.KlantorderId = klantorder.KlantorderId;
+                werkorder.Motortype = klantorder.Type;
+                werkorder.LeverPeriode = DateTime.Now.AddDays(7);
+
+                _context.Add(werkorder);
+            }
+
+            return View(klantorder);
         }
     }
 }

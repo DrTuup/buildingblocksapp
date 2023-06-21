@@ -49,6 +49,7 @@
                 @Html.DisplayFor(modelItem => item.AkkoordAccountmanager)
             </td>
             <td>
+                <a asp-action="AcceptOrder" asp-route-id="@item.KlantorderId">AcceptOrder</a> |
                 <a asp-action="Edit" asp-route-id="@item.KlantorderId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.KlantorderId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.KlantorderId">Delete</a>
