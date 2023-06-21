@@ -45,6 +45,21 @@ namespace buildingblocksapp.Controllers
             return View(orderpick);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Details(int OrderpickId, bool AkkoordProductie)
+        {
+
+            var orderpick = await _context.Orderpicks
+                .FirstOrDefaultAsync(m => m.OrderpickId == OrderpickId);
+            if (orderpick == null)
+            {
+                return NotFound();
+            }
+            orderpick.AkkoordProductie = AkkoordProductie;
+            await _context.SaveChangesAsync();  
+            return View(orderpick);
+        }
+
         // GET: Orderpicks/Create
         public IActionResult Create()
         {
@@ -55,7 +70,6 @@ namespace buildingblocksapp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("WerkOrderId")] int werkOrderId)
         {
             if (ModelState.IsValid)
