@@ -1,58 +1,59 @@
-﻿@model buildingblocksapp.Models.Orderpick
+﻿@model IEnumerable<buildingblocksapp.Models.Werkorder>
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create Orderpick<</h1>
+<h4>Select werkorder to start</h4>
 
-<h4>Orderpick</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="WerkorderId" class="control-label"></label>
-                <input asp-for="WerkorderId" class="form-control" />
-                <span asp-validation-for="WerkorderId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PeriodeAanvraag" class="control-label"></label>
-                <input asp-for="PeriodeAanvraag" class="form-control" />
-                <span asp-validation-for="PeriodeAanvraag" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PeriodeLevering" class="control-label"></label>
-                <input asp-for="PeriodeLevering" class="form-control" />
-                <span asp-validation-for="PeriodeLevering" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rood" class="control-label"></label>
-                <input asp-for="Rood" class="form-control" />
-                <span asp-validation-for="Rood" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Grijs" class="control-label"></label>
-                <input asp-for="Grijs" class="form-control" />
-                <span asp-validation-for="Grijs" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Blauw" class="control-label"></label>
-                <input asp-for="Blauw" class="form-control" />
-                <span asp-validation-for="Blauw" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="AkkoordProductie" /> @Html.DisplayNameFor(model => model.AkkoordProductie)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<table class="table">
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WerkorderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KlantOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Klantorder.Aantal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Klantorder.Type)
+        </th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WerkorderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KlantOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Klantorder.Aantal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Klantorder.Type)
+            </td>
+            <td>
+                <form asp-action="Create">
+                    <input type="Hidden" name="WerkOrderId" value="@item.WerkorderId">
+                        <div class="form-group">
+                            <button type="submit" value="Start" class="btn btn-primary"></button>
+                        </div>
+                </form>
+            </td>
+        </tr>
+    }
+</tbody>
+</table>
 
 <div>
     <a asp-action="Index">Back to List</a>

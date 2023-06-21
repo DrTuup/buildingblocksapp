@@ -9,8 +9,8 @@ namespace buildingblocksapp.Models
         //Properties
         [Key, Required]
         public int WerkorderId { get; set; }
-        [Required, ForeignKey("Orderpick")]
-        public int OrderpickId { get; set; }
+        [ForeignKey("Orderpick")]
+        public int? OrderpickId { get; set; }
         [Required, ForeignKey("Klantorder")]
         public int KlantOrder { get; set; }
         [Required]

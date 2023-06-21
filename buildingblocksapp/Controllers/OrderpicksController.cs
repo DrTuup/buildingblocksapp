@@ -48,7 +48,7 @@ namespace buildingblocksapp.Controllers
         // GET: Orderpicks/Create
         public IActionResult Create()
         {
-            return View();
+            return View(_context.Werkorders.Include(q=>q.Klantorder).Include(q=>q.Orderpick).Where(q=>q.Orderpick == null));
         }
 
         // POST: Orderpicks/Create
@@ -56,15 +56,27 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderpickId,WerkorderId,PeriodeAanvraag,PeriodeLevering,Rood,Grijs,Blauw,AkkoordProductie")] Orderpick orderpick)
+        public async Task<IActionResult> Create([Bind("WerkOrderId")] int werkOrderId)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(orderpick);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                Werkorder? werkorder = _context.Werkorders.Find(werkOrderId);
+                if (werkorder != null)
+                {
+                    Orderpick orderpick = new Orderpick
+                    {
+                        WerkorderId = werkorder.WerkorderId,
+                        PeriodeAanvraag = DateTime.Now,
+                        Rood = 1,
+                        Grijs = 1,
+                        Blauw = 1,
+                        AkkoordProductie = false
+                    };
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Details), orderpick.OrderpickId);
+                }
             }
-            return View(orderpick);
+            return View(_context.Werkorders.Include(q => q.KlantOrder).Include(q => q.Orderpick).Where(q => q.Orderpick == null));
         }
 
         // GET: Orderpicks/Edit/5
