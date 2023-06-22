@@ -1,0 +1,65 @@
+@model IEnumerable<buildingblocksapp.Models.Factuur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Factuurdatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotaalBedrag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoldaanBedrag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Betaaldatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Betaalstatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Klantorder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Factuurdatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotaalBedrag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoldaanBedrag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Betaaldatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Betaalstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Klantorder.Naam)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FactuurId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FactuurId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FactuurId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,4 +1,4 @@
-﻿using buildingblocksapp.Models;
+using buildingblocksapp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace buildingblocksapp
@@ -15,10 +15,12 @@ namespace buildingblocksapp
         public DbSet<Klantorder> Klantorders { get; set; } = null!;
         public DbSet<Orderpick> Orderpicks { get; set; } = null!;
         public DbSet<Werkorder> Werkorders { get; set; } = null!;
+        public DbSet<Factuur> Facturen { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
         }
+
     }
 }
