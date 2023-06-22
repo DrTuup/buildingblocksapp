@@ -22,19 +22,19 @@ namespace buildingblocksapp.Controllers
         // GET: Facturen
         public async Task<IActionResult> Index()
         {
-            var buildingblocksContext = _context.Factuur.Include(f => f.Klantorder);
+            var buildingblocksContext = _context.Facturen.Include(f => f.Klantorder);
             return View(await buildingblocksContext.ToListAsync());
         }
 
         // GET: Facturen/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Factuur == null)
+            if (id == null || _context.Facturen == null)
             {
                 return NotFound();
             }
 
-            var factuur = await _context.Factuur
+            var factuur = await _context.Facturen
                 .Include(f => f.Klantorder)
                 .FirstOrDefaultAsync(m => m.FactuurId == id);
             if (factuur == null)
@@ -72,12 +72,12 @@ namespace buildingblocksapp.Controllers
         // GET: Facturen/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Factuur == null)
+            if (id == null || _context.Facturen == null)
             {
                 return NotFound();
             }
 
-            var factuur = await _context.Factuur.FindAsync(id);
+            var factuur = await _context.Facturen.FindAsync(id);
             if (factuur == null)
             {
                 return NotFound();
@@ -125,12 +125,12 @@ namespace buildingblocksapp.Controllers
         // GET: Facturen/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Factuur == null)
+            if (id == null || _context.Facturen == null)
             {
                 return NotFound();
             }
 
-            var factuur = await _context.Factuur
+            var factuur = await _context.Facturen
                 .Include(f => f.Klantorder)
                 .FirstOrDefaultAsync(m => m.FactuurId == id);
             if (factuur == null)
@@ -146,14 +146,14 @@ namespace buildingblocksapp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Factuur == null)
+            if (_context.Facturen == null)
             {
                 return Problem("Entity set 'BuildingblocksContext.Factuur'  is null.");
             }
-            var factuur = await _context.Factuur.FindAsync(id);
+            var factuur = await _context.Facturen.FindAsync(id);
             if (factuur != null)
             {
-                _context.Factuur.Remove(factuur);
+                _context.Facturen.Remove(factuur);
             }
             
             await _context.SaveChangesAsync();
@@ -162,7 +162,7 @@ namespace buildingblocksapp.Controllers
 
         private bool FactuurExists(int id)
         {
-          return (_context.Factuur?.Any(e => e.FactuurId == id)).GetValueOrDefault();
+          return (_context.Facturen?.Any(e => e.FactuurId == id)).GetValueOrDefault();
         }
     }
 }
