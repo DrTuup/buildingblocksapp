@@ -22,6 +22,44 @@ namespace buildingblocksapp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("buildingblocksapp.Models.Factuur", b =>
+                {
+                    b.Property<int>("FactuurId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FactuurId"));
+
+                    b.Property<string>("Betaaldatum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Betaalstatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Factuurdatum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("KlantorderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TotaalBedrag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VoldaanBedrag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FactuurId");
+
+                    b.HasIndex("KlantorderId");
+
+                    b.ToTable("Factuur");
+                });
+
             modelBuilder.Entity("buildingblocksapp.Models.Inkooporder", b =>
                 {
                     b.Property<int>("InkooporderId")
@@ -182,6 +220,17 @@ namespace buildingblocksapp.Migrations
                         .IsUnique();
 
                     b.ToTable("Werkorders");
+                });
+
+            modelBuilder.Entity("buildingblocksapp.Models.Factuur", b =>
+                {
+                    b.HasOne("buildingblocksapp.Models.Klantorder", "Klantorder")
+                        .WithMany()
+                        .HasForeignKey("KlantorderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Klantorder");
                 });
 
             modelBuilder.Entity("buildingblocksapp.Models.Inkooporder", b =>
