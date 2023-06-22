@@ -27,5 +27,6 @@ namespace buildingblocksapp
             modelBuilder.Entity<Orderpick>().HasOne(wo => wo.Werkorder).WithOne(op => op.Orderpick).OnDelete(DeleteBehavior.NoAction);
         }
         public DbSet<buildingblocksapp.Models.Factuur> Factuur { get; set; } = default!;
+
     }
 }

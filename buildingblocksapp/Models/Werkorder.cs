@@ -9,20 +9,16 @@ namespace buildingblocksapp.Models
         //Properties
         [Key, Required]
         public int WerkorderId { get; set; }
-        [Required, ForeignKey("Orderpick")]
-        public int OrderpickId { get; set; }
         [Required, ForeignKey("Klantorder")]
         public int KlantOrder { get; set; }
         [Required]
         public MotortypeEnum Motortype { get; set; }
         [Required, DataType(DataType.DateTime)]
         public DateTime LeverPeriode { get; set; }
-        [Required]
         public bool AkkoordPanning { get; set; }
 
 
         //Relationships
-        public Orderpick Orderpick { get; set; } = null!;
         public Klantorder Klantorder { get; set; } = null!;
     }
 }

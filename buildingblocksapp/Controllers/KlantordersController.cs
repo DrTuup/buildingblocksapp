@@ -158,10 +158,72 @@ namespace buildingblocksapp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        
+        
 
         private bool KlantorderExists(int id)
         {
           return (_context.Klantorders?.Any(e => e.KlantorderId == id)).GetValueOrDefault();
+        }
+
+        // GET: Klantorders/Accept/5
+        public async Task<IActionResult> Accept(int? id)
+        {
+            if (id == null || _context.Klantorders == null)
+            {
+                return NotFound();
+            }
+
+            var klantorder = await _context.Klantorders
+                .FirstOrDefaultAsync(m => m.KlantorderId == id);
+            if (klantorder == null)
+            {
+                return NotFound();
+            }
+
+            return View(klantorder);
+        }
+
+        // POST: Klantorders/Accept/5
+        [HttpPost, ActionName("Accept")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Accept(int id)
+        {
+            
+            if (id == null || _context.Klantorders == null)
+            {
+                return NotFound();
+            }
+
+            var klantorder = await _context.Klantorders.FindAsync(id);
+            if (klantorder == null)
+            {
+                return NotFound();
+            }
+
+            klantorder.AkkoordAccountmanager = true;
+            if (klantorder != null)
+            {
+                _context.Update(klantorder);
+                await _context.SaveChangesAsync();
+            }
+
+            if (klantorder != null)
+            {
+                for (int i = 0; i < klantorder.Aantal; i++)
+                {
+                    var werkorder = new Werkorder();
+                    werkorder.KlantOrder = klantorder.KlantorderId;
+                    werkorder.Motortype = klantorder.Type;
+                    werkorder.LeverPeriode = DateTime.Now.AddDays(7);
+
+                    _context.Add(werkorder);
+                }
+                await _context.SaveChangesAsync();
+            }   
+            
+
+            return View(klantorder);
         }
     }
 }
