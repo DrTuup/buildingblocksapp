@@ -8,7 +8,6 @@ namespace buildingblocksapp.Models
         // Properties
         [Key, Required]
         public int OrderpickId { get; set; }
-        [Required]
         public int WerkorderId { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime PeriodeAanvraag { get; set; }

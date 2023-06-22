@@ -9,8 +9,6 @@ namespace buildingblocksapp.Models
         //Properties
         [Key, Required]
         public int WerkorderId { get; set; }
-        [ForeignKey("Orderpick")]
-        public int OrderpickId { get; set; }
         [Required, ForeignKey("Klantorder")]
         public int KlantOrder { get; set; }
         [Required]
@@ -21,7 +19,6 @@ namespace buildingblocksapp.Models
 
 
         //Relationships
-        public Orderpick Orderpick { get; set; } = null!;
         public Klantorder Klantorder { get; set; } = null!;
     }
 }

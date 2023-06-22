@@ -53,7 +53,7 @@ namespace buildingblocksapp.Migrations
                     b.HasIndex("InkooporderCorrectieId")
                         .IsUnique();
 
-                    b.ToTable("Inkooporders");
+                    b.ToTable("Inkooporders", (string)null);
                 });
 
             modelBuilder.Entity("buildingblocksapp.Models.InkooporderCorrectie", b =>
@@ -78,7 +78,7 @@ namespace buildingblocksapp.Migrations
 
                     b.HasKey("InkooporderCorrectieId");
 
-                    b.ToTable("InkooporderCorrecties");
+                    b.ToTable("InkooporderCorrecties", (string)null);
                 });
 
             modelBuilder.Entity("buildingblocksapp.Models.Klantorder", b =>
@@ -114,7 +114,7 @@ namespace buildingblocksapp.Migrations
 
                     b.HasKey("KlantorderId");
 
-                    b.ToTable("Klantorders");
+                    b.ToTable("Klantorders", (string)null);
                 });
 
             modelBuilder.Entity("buildingblocksapp.Models.Orderpick", b =>
@@ -148,7 +148,7 @@ namespace buildingblocksapp.Migrations
 
                     b.HasKey("OrderpickId");
 
-                    b.ToTable("Orderpicks");
+                    b.ToTable("Orderpicks", (string)null);
                 });
 
             modelBuilder.Entity("buildingblocksapp.Models.Werkorder", b =>
@@ -181,7 +181,7 @@ namespace buildingblocksapp.Migrations
                     b.HasIndex("OrderpickId")
                         .IsUnique();
 
-                    b.ToTable("Werkorders");
+                    b.ToTable("Werkorders", (string)null);
                 });
 
             modelBuilder.Entity("buildingblocksapp.Models.Inkooporder", b =>
