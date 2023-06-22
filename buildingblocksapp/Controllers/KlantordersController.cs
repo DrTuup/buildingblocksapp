@@ -223,7 +223,7 @@ namespace buildingblocksapp.Controllers
             }   
             
 
-            return View(klantorder);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
