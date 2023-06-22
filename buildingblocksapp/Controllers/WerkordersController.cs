@@ -22,7 +22,7 @@ namespace buildingblocksapp.Controllers
         // GET: Werkorders
         public async Task<IActionResult> Index()
         {
-            var buildingblocksContext = _context.Werkorders.Include(w => w.Klantorder).Include(w => w.Orderpick);
+            var buildingblocksContext = _context.Werkorders.Include(w => w.Klantorder);
             return View(await buildingblocksContext.ToListAsync());
         }
 

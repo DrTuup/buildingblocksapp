@@ -20,9 +20,5 @@ namespace buildingblocksapp
         {
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Orderpick>().HasOne(wo => wo.Werkorder).WithOne(op => op.Orderpick).OnDelete(DeleteBehavior.NoAction);
-        }
     }
 }
