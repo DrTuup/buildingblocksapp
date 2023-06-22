@@ -14,11 +14,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="WerkorderId" />
             <div class="form-group">
-                <label asp-for="OrderpickId" class="control-label"></label>
-                <select asp-for="OrderpickId" class="form-control" asp-items="ViewBag.OrderpickId"></select>
-                <span asp-validation-for="OrderpickId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="KlantOrder" class="control-label"></label>
                 <select asp-for="KlantOrder" class="form-control" asp-items="ViewBag.KlantOrder"></select>
                 <span asp-validation-for="KlantOrder" class="text-danger"></span>

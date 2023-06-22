@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using buildingblocksapp;
 
@@ -11,9 +12,11 @@ using buildingblocksapp;
 namespace buildingblocksapp.Migrations
 {
     [DbContext(typeof(BuildingblocksContext))]
-    partial class BuildingblocksContextModelSnapshot : ModelSnapshot
+    [Migration("20230622095016_fix-werkorder3")]
+    partial class fixwerkorder3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

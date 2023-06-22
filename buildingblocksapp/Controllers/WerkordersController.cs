@@ -22,7 +22,7 @@ namespace buildingblocksapp.Controllers
         // GET: Werkorders
         public async Task<IActionResult> Index()
         {
-            var buildingblocksContext = _context.Werkorders.Include(w => w.Klantorder).Include(w => w.Orderpick);
+            var buildingblocksContext = _context.Werkorders.Include(w => w.Klantorder);
             return View(await buildingblocksContext.ToListAsync());
         }
 
@@ -36,7 +36,6 @@ namespace buildingblocksapp.Controllers
 
             var werkorder = await _context.Werkorders
                 .Include(w => w.Klantorder)
-                .Include(w => w.Orderpick)
                 .FirstOrDefaultAsync(m => m.WerkorderId == id);
             if (werkorder == null)
             {
@@ -50,7 +49,6 @@ namespace buildingblocksapp.Controllers
         public IActionResult Create()
         {
             ViewData["KlantOrder"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam");
-            ViewData["OrderpickId"] = new SelectList(_context.Orderpicks, "OrderpickId", "OrderpickId");
             return View();
         }
 
@@ -59,7 +57,7 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("WerkorderId,OrderpickId,KlantOrder,Motortype,LeverPeriode,AkkoordPanning")] Werkorder werkorder)
+        public async Task<IActionResult> Create([Bind("WerkorderId,KlantOrder,Motortype,LeverPeriode,AkkoordPanning")] Werkorder werkorder)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +66,6 @@ namespace buildingblocksapp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KlantOrder"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam", werkorder.KlantOrder);
-            ViewData["OrderpickId"] = new SelectList(_context.Orderpicks, "OrderpickId", "OrderpickId", werkorder.OrderpickId);
             return View(werkorder);
         }
 
@@ -86,7 +83,6 @@ namespace buildingblocksapp.Controllers
                 return NotFound();
             }
             ViewData["KlantOrder"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam", werkorder.KlantOrder);
-            ViewData["OrderpickId"] = new SelectList(_context.Orderpicks, "OrderpickId", "OrderpickId", werkorder.OrderpickId);
             return View(werkorder);
         }
 
@@ -95,7 +91,7 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("WerkorderId,OrderpickId,KlantOrder,Motortype,LeverPeriode,AkkoordPanning")] Werkorder werkorder)
+        public async Task<IActionResult> Edit(int id, [Bind("WerkorderId,KlantOrder,Motortype,LeverPeriode,AkkoordPanning")] Werkorder werkorder)
         {
             if (id != werkorder.WerkorderId)
             {
@@ -123,7 +119,6 @@ namespace buildingblocksapp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KlantOrder"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam", werkorder.KlantOrder);
-            ViewData["OrderpickId"] = new SelectList(_context.Orderpicks, "OrderpickId", "OrderpickId", werkorder.OrderpickId);
             return View(werkorder);
         }
 
@@ -137,7 +132,6 @@ namespace buildingblocksapp.Controllers
 
             var werkorder = await _context.Werkorders
                 .Include(w => w.Klantorder)
-                .Include(w => w.Orderpick)
                 .FirstOrDefaultAsync(m => m.WerkorderId == id);
             if (werkorder == null)
             {
