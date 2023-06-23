@@ -49,7 +49,8 @@ namespace buildingblocksapp.Controllers
         public IActionResult Create()
         {
             ViewData["KlantorderId"] = new SelectList(_context.Klantorders, "KlantorderId", "Naam");
-            return View();
+            Factuur factuur = new Factuur();
+            return View(factuur);
         }
 
         // POST: Facturen/Create
@@ -57,7 +58,7 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FactuurId,Factuurdatum,KlantorderId,TotaalBedrag,VoldaanBedrag,Betaaldatum,Betaalstatus")] Factuur factuur)
+        public async Task<IActionResult> Create([Bind("FactuurId,Factuurdatum,TotaalBedrag,BetaaldBedrag,FactuurStatus,KlantorderId")] Factuur factuur)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +92,7 @@ namespace buildingblocksapp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FactuurId,Factuurdatum,KlantorderId,TotaalBedrag,VoldaanBedrag,Betaaldatum,Betaalstatus")] Factuur factuur)
+        public async Task<IActionResult> Edit(int id, [Bind("FactuurId,Factuurdatum,TotaalBedrag,BetaaldBedrag,FactuurStatus,KlantorderId")] Factuur factuur)
         {
             if (id != factuur.FactuurId)
             {
@@ -148,7 +149,7 @@ namespace buildingblocksapp.Controllers
         {
             if (_context.Facturen == null)
             {
-                return Problem("Entity set 'BuildingblocksContext.Factuur'  is null.");
+                return Problem("Entity set 'BuildingblocksContext.Facturen'  is null.");
             }
             var factuur = await _context.Facturen.FindAsync(id);
             if (factuur != null)

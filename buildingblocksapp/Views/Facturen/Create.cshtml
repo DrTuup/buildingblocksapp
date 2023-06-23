@@ -27,19 +27,14 @@
                 <span asp-validation-for="TotaalBedrag" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VoldaanBedrag" class="control-label"></label>
-                <input asp-for="VoldaanBedrag" class="form-control" />
-                <span asp-validation-for="VoldaanBedrag" class="text-danger"></span>
+                <label asp-for="BetaaldBedrag" class="control-label"></label>
+                <input disabled asp-for="BetaaldBedrag" class="form-control" />
+                <span asp-validation-for="BetaaldBedrag" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Betaaldatum" class="control-label"></label>
-                <input asp-for="Betaaldatum" class="form-control" />
-                <span asp-validation-for="Betaaldatum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Betaalstatus" class="control-label"></label>
-                <input asp-for="Betaalstatus" class="form-control" />
-                <span asp-validation-for="Betaalstatus" class="text-danger"></span>
+                <label asp-for="FactuurStatus" class="control-label"></label>
+                <select asp-for="FactuurStatus" class="form-control" asp-items="Html.GetEnumSelectList<FactuurStatusEnum>()"></select></select>
+                <span asp-validation-for="FactuurStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -26,7 +26,7 @@ namespace buildingblocksapp.Controllers
         public async Task<IActionResult> Index(DateTime start, DateTime end)
         {
             List<Report> AllElelements = new List<Report>();
-            var orders = _context.Klantorders.Where(a => a.AanmaakDatum >= start && a.AanmaakDatum < end);
+            var orders = _context.Klantorders.Where(a => a.AanmaakDatum >= start && a.AanmaakDatum < end).ToList();
             foreach (var order in orders)
             {
                 Report reportelement = new Report()
@@ -40,26 +40,26 @@ namespace buildingblocksapp.Controllers
                 };
                 if (order.Type.ToString() == "A")
                 {
-                    reportelement.Blauw = 4;
-                    reportelement.Rood = 2;
-                    reportelement.Grijs = 1;
+                    reportelement.Blauw = 3 * order.Aantal;
+                    reportelement.Rood = 4 * order.Aantal;
+                    reportelement.Grijs = 2 * order.Aantal;
                 }
                 else if (order.Type.ToString() == "B")
                 {
-                    reportelement.Blauw = 4;
-                    reportelement.Rood = 2;
-                    reportelement.Grijs = 1;
+                    reportelement.Blauw = 2 * order.Aantal;
+                    reportelement.Rood = 2 * order.Aantal;
+                    reportelement.Grijs = 4 * order.Aantal;
                 }
                 else if (order.Type.ToString() == "C")
                 {
-                    reportelement.Blauw = 4;
-                    reportelement.Rood = 2;
-                    reportelement.Grijs = 1;
+                    reportelement.Blauw = 3 * order.Aantal;
+                    reportelement.Rood = 3 * order.Aantal;
+                    reportelement.Grijs = 2 * order.Aantal;
                 }
                 AllElelements.Add(reportelement);
             }
 
-            return RedirectToAction("ReportScreen", "Reports", new {@reports = AllElelements});
+            return View("ReportScreen", AllElelements);
         }
         public async Task<IActionResult> ReportScreen(List<Report> reports)
         {
