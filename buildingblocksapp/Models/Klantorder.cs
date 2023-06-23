@@ -26,7 +26,7 @@ namespace buildingblocksapp.Models
 
         // Relationships
         public List<Werkorder> Werkorders { get; set; } = new();
-
+        public Factuur? Factuur { get; set; }
         // Methods
         public string GenerateRandomString(int length)
         {
