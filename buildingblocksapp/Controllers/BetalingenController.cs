@@ -61,7 +61,6 @@ namespace buildingblocksapp.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine("BetalingenController:Create");
                 _context.Add(betaling);
                 var factuur = await _context.Facturen.FindAsync(betaling.FactuurId);
                 factuur?.UpdateBetaalstatus();
